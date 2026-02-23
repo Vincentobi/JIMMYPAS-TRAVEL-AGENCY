@@ -29,7 +29,7 @@ const responsive = {
 };
 
 const Destinations = () => {
-    const carouselRef = React.useRef<React.ElementRef<typeof Carousel>>(null);
+    const carouselRef = React.useRef<Carousel>(null);
 
     // Chunk the studyCards into groups of 4
     const chunks = [];
@@ -42,10 +42,10 @@ const Destinations = () => {
                 <div className="flex items-center justify-between mb-8">
                     <h2 className="text-3xl font-extrabold tracking-tight">Popular Study Destinations</h2>
                     <div className="flex gap-2">
-                        <button onClick={() => (carouselRef.current as any)?.previous()} className="p-2 border border-gray-200 dark:border-slate-800 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors">
+                        <button onClick={() => carouselRef.current?.previous(0)} className="p-2 border border-gray-200 dark:border-slate-800 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors">
                             <ChevronLeftIcon />
                         </button>
-                        <button onClick={() => (carouselRef.current as any)?.next()} className="p-2 border border-gray-200 dark:border-slate-800 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors">
+                        <button onClick={() => carouselRef.current?.next(0)} className="p-2 border border-gray-200 dark:border-slate-800 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors">
                             <ChevronRightIcon />
                         </button>
                     </div>
@@ -68,7 +68,7 @@ const Destinations = () => {
                     {chunks.map((chunk, index) => (
                         <div key={index} className="grid grid-cols-1 md:grid-cols-2 gap-4 px-2">
                             {chunk.map((card) => (
-                                <StudyCards key={card.title} title={card.title} subTitle={card.subTitle} description={card.description} image={card.image} />
+                                <StudyCards key={card.title} title={card.title} subTitle={card.subTitle} description={card.description} image={card.image} flag={card.flag} />
                             ))}
                         </div>
                     ))}
