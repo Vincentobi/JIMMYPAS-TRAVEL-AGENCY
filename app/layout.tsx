@@ -3,6 +3,7 @@ import { Manrope } from "next/font/google";
 import "./globals.css";
 import LayoutWrapper from "./Components/LayoutWrapper";
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import PageAnimate from "./Components/Animation/PageAnimate";
 
 const font = Manrope({
   variable: "--font-manrope",
@@ -89,7 +90,9 @@ export default function RootLayout({
         className={`${font.variable} antialiased`}
       >
         <LayoutWrapper>
-          {children}
+          <PageAnimate>
+            {children}
+          </PageAnimate>
           <SpeedInsights />
         </LayoutWrapper>
       </body>

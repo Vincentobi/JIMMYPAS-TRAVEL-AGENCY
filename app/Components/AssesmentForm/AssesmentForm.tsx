@@ -2,6 +2,7 @@
 import { ArrowBack, ArrowForward, CalendarToday, Check, CheckCircle, Description, ExpandMore, Flight, Home, MailOutline, PersonOutline, RocketLaunch, School, Search, SupportAgent, VerifiedUser, WorkOutline } from '@mui/icons-material';
 import { useState } from 'react'
 import Link from 'next/link'
+import { motion, AnimatePresence } from 'framer-motion';
 
 // shape of my form data
 interface FormData {
@@ -201,7 +202,13 @@ const AssesmentForm = () => {
                 ] as const
 
                 return (
-                    <div>
+                    <motion.div
+                        key="step1"
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -20 }}
+                        transition={{ duration: 0.3 }}
+                    >
                         {/* Main Content Area */}
                         <main className="grow flex flex-col items-center py-12 px-6">
                             {/* Progress Section */}
@@ -278,14 +285,20 @@ const AssesmentForm = () => {
                         <div className="fixed bottom-0 left-0 -z-10 opacity-10 blur-3xl pointer-events-none">
                             <div className="w-[300px] h-[300px] bg-primary rounded-full -translate-x-1/2 translate-y-1/2"></div>
                         </div>
-                    </div>
+                    </motion.div>
                 )
             }
             case 2: {
                 const filteredCountries = countries.filter(c => c.name.toLowerCase().includes(searchTerm.toLowerCase()))
 
                 return (
-                    <div>
+                    <motion.div
+                        key="step2"
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -20 }}
+                        transition={{ duration: 0.3 }}
+                    >
                         <div className="max-w-6xl mx-auto px-6 py-12">
                             {/* Top Section: Progress & Header */}
                             <header className="text-center mb-12">
@@ -366,12 +379,18 @@ const AssesmentForm = () => {
                         <div className="fixed bottom-0 left-0 -z-10 opacity-10 blur-3xl pointer-events-none">
                             <div className="w-[300px] h-[300px] bg-primary rounded-full -translate-x-1/2 translate-y-1/2"></div>
                         </div>
-                    </div>
+                    </motion.div>
                 )
             }
             case 3:
                 return (
-                    <div>
+                    <motion.div
+                        key="step3"
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -20 }}
+                        transition={{ duration: 0.3 }}
+                    >
                         <main className="grow flex flex-col items-center py-12 px-6">
                             {/* Progress Indicator Container */}
                             <div className="w-full max-w-2xl mb-8">
@@ -493,11 +512,17 @@ const AssesmentForm = () => {
                         <div className="fixed bottom-0 left-0 -z-10 opacity-10 blur-3xl pointer-events-none">
                             <div className="w-[300px] h-[300px] bg-primary rounded-full -translate-x-1/2 translate-y-1/2"></div>
                         </div>
-                    </div>
+                    </motion.div>
                 )
             case 4:
                 return (
-                    <div>
+                    <motion.div
+                        key="step4"
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -20 }}
+                        transition={{ duration: 0.3 }}
+                    >
                         <main className="grow flex flex-col items-center py-12 px-6">
                             <div className="w-full max-w-xl">
                                 {/* <!-- Progress Tracker --> */}
@@ -610,11 +635,17 @@ const AssesmentForm = () => {
                         <div className="fixed bottom-0 left-0 -z-10 opacity-10 blur-3xl pointer-events-none">
                             <div className="w-[300px] h-[300px] bg-primary rounded-full -translate-x-1/2 translate-y-1/2"></div>
                         </div>
-                    </div>
+                    </motion.div>
                 )
             case 5:
                 return (
-                    <div>
+                    <motion.div
+                        key="step5"
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.95 }}
+                        transition={{ duration: 0.4 }}
+                    >
                         <main className='grow flex items-center justify-center px-4 pb-20'>
                             <div className='max-w-xl w-full bg-white dark:bg-background-dark/50 border border-primary/5 shadow-2xl shadow-primary/5 rounded-xl p-8 md:p-12 text-center'>
                                 {/* Success Icon */}
@@ -667,7 +698,7 @@ const AssesmentForm = () => {
                                 </div>
                             </div>
                         </main>
-                    </div>
+                    </motion.div>
                 )
         }
     }
@@ -694,7 +725,9 @@ const AssesmentForm = () => {
                     <div className="absolute w-[700px] h-[700px] border border-primary/5 rounded-full animate-[ping_4s_linear_infinite]"></div>
                 </div>
             )}
-            {renderStep()}
+            <AnimatePresence mode='wait'>
+                {renderStep()}
+            </AnimatePresence>
         </div>
     )
 

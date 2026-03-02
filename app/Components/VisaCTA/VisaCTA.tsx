@@ -2,12 +2,13 @@
 import Link from 'next/link'
 import React, { useState } from 'react'
 import Form from '../ConsultaionForm/Form'
+import { motion } from 'framer-motion'
 
 const VisaCTA = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <div className="bg-primary p-12 rounded-3xl text-center text-white relative overflow-hidden group">
+    <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6 }} className="bg-primary p-12 rounded-3xl text-center text-white relative overflow-hidden group">
       <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-32 -mt-32 blur-3xl group-hover:bg-white/10 transition-colors"></div>
       <div className="relative z-10">
         <h2 className="text-3xl font-black mb-4">Ready to start your journey?</h2>
@@ -27,7 +28,7 @@ const VisaCTA = () => {
 
       {/* Consultation Modal */}
       <Form isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
-    </div>
+    </motion.div>
   )
 }
 

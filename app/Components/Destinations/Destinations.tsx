@@ -8,6 +8,7 @@ import StarsIcon from '@mui/icons-material/Stars';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import { motion } from 'framer-motion'
 
 interface InquiryForm {
     fullName: string;
@@ -106,10 +107,10 @@ const Destinations = () => {
                 <div className="flex items-center justify-between mb-8">
                     <h2 className="text-3xl font-extrabold tracking-tight">Popular Study Destinations</h2>
                     <div className="flex gap-2">
-                        <button onClick={() => carouselRef.current?.previous()} className="p-2 border border-gray-200 dark:border-slate-800 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors">
+                        <button onClick={() => carouselRef.current?.previous(0)} className="p-2 border border-gray-200 dark:border-slate-800 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors">
                             <ChevronLeftIcon />
                         </button>
-                        <button onClick={() => carouselRef.current?.next()} className="p-2 border border-gray-200 dark:border-slate-800 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors">
+                        <button onClick={() => carouselRef.current?.next(0)} className="p-2 border border-gray-200 dark:border-slate-800 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors">
                             <ChevronRightIcon />
                         </button>
                     </div>
@@ -139,7 +140,7 @@ const Destinations = () => {
                 </Carousel>
             </div>
             {/* <!-- Sidebar --> */}
-            <aside className="lg:col-span-4 space-y-8">
+            <motion.aside initial={{ opacity: 0, y: -20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="lg:col-span-4 space-y-8">
                 {/* <!-- Scholarship Updates --> */}
                 <div className="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-sm border border-gray-100 dark:border-slate-800">
                     <div className="flex items-center gap-2 mb-6">
@@ -247,7 +248,7 @@ const Destinations = () => {
                         </button>
                     </form>
                 </div>
-            </aside>
+            </motion.aside>
         </div>
     )
 }

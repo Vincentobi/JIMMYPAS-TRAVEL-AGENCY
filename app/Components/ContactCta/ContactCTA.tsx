@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-
+import { motion } from 'framer-motion'
 
 interface ContactCTAProps {
     onOpenModal: () => void;
@@ -8,7 +8,7 @@ interface ContactCTAProps {
 
 const ContactCTA = ({ onOpenModal }: ContactCTAProps) => {
     return (
-        <div className='mb-20'>
+        <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6 }} className='mb-20'>
             <div className="relative overflow-hidden rounded-3xl bg-primary px-8 py-16 md:px-16 md:py-20 text-center text-white">
                 <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-96 h-96 bg-accent-gold/20 rounded-full blur-3xl"></div>
                 <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
@@ -28,7 +28,7 @@ const ContactCTA = ({ onOpenModal }: ContactCTAProps) => {
                     </div>
                 </div>
             </div>
-        </div>
+        </motion.div>
     )
 }
 

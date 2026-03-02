@@ -6,6 +6,7 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import { motion } from 'framer-motion';
 
 
 const AccordionComponent = () => {
@@ -16,7 +17,7 @@ const AccordionComponent = () => {
     };
 
     return (
-        <div className="lg:col-span-2 space-y-4">
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="lg:col-span-2 space-y-4">
             <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                 <AccordionSummary
                     expandIcon={<ArrowDownwardIcon className={expanded === 'panel1' ? 'text-primary' : ''} />}
@@ -92,7 +93,7 @@ const AccordionComponent = () => {
                     </Typography>
                 </AccordionDetails>
             </Accordion>
-        </div>
+        </motion.div>
     );
 };
 

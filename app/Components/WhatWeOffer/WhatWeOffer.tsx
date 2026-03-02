@@ -1,5 +1,6 @@
 import React from 'react'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import { motion } from 'framer-motion';
 
 const WhatWeOffer = () => {
     return (
@@ -10,7 +11,12 @@ const WhatWeOffer = () => {
                 <div className="w-20 h-1.5 bg-accent-gold rounded-full"></div>
             </div>
             <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pb-20'>
-                <div className='flex flex-col gap-4 group cursor-pointer'>
+                <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    className='flex flex-col gap-4 group cursor-pointer'
+                >
                     <div className="relative overflow-hidden rounded-xl aspect-4/5">
                         <div className="absolute inset-0 bg-primary/10 group-hover:bg-primary/0 transition-colors z-10"></div>
                         <div className="w-full h-full bg-center bg-no-repeat bg-cover transform group-hover:scale-110 transition-transform duration-500" style={{ backgroundImage: 'url("/images/passportVisa.jpg")' }}></div>
@@ -22,8 +28,13 @@ const WhatWeOffer = () => {
                         </h3>
                         <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mt-1">End-to-end processing for your academic journey abroad.</p>
                     </div>
-                </div>
-                <div className='flex flex-col gap-4 group cursor-pointer'>
+                </motion.div>
+                <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    className='flex flex-col gap-4 group cursor-pointer'
+                >
                     <div className="relative overflow-hidden rounded-xl aspect-4/5">
                         <div className="absolute inset-0 bg-primary/10 group-hover:bg-primary/0 transition-colors z-10"></div>
                         <div className="w-full h-full bg-center bg-no-repeat bg-cover transform group-hover:scale-110 transition-transform duration-500" style={{ backgroundImage: 'url("/images/WorkPermit.png")' }}></div>
@@ -35,8 +46,13 @@ const WhatWeOffer = () => {
                         </h3>
                         <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mt-1">Specialized guidance for global career opportunities.</p>
                     </div>
-                </div>
-                <div className='flex flex-col gap-4 group cursor-pointer'>
+                </motion.div>
+                <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    className='flex flex-col gap-4 group cursor-pointer'
+                >
                     <div className="relative overflow-hidden rounded-xl aspect-4/5">
                         <div className="absolute inset-0 bg-primary/10 group-hover:bg-primary/0 transition-colors z-10"></div>
                         <div className="w-full h-full bg-center bg-no-repeat bg-cover transform group-hover:scale-110 transition-transform duration-500" style={{ backgroundImage: 'url("/images/AdmissionsBg.png")' }}></div>
@@ -48,8 +64,13 @@ const WhatWeOffer = () => {
                         </h3>
                         <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mt-1">Secure your spot in top ranked global institutions</p>
                     </div>
-                </div>
-                <div className='flex flex-col gap-4 group cursor-pointer'>
+                </motion.div>
+                <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    className='flex flex-col gap-4 group cursor-pointer'
+                >
                     <div className="relative overflow-hidden rounded-xl aspect-4/5">
                         <div className="absolute inset-0 bg-primary/10 group-hover:bg-primary/0 transition-colors z-10"></div>
                         <div className="w-full h-full bg-center bg-no-repeat bg-cover transform group-hover:scale-110 transition-transform duration-500" style={{ backgroundImage: 'url("/images/Travelnsurance.jpg")' }}></div>
@@ -61,7 +82,7 @@ const WhatWeOffer = () => {
                         </h3>
                         <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mt-1">Stay protected throughout your international stay.</p>
                     </div>
-                </div>
+                </motion.div>
             </div>
         </div>
     )
